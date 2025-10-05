@@ -1,5 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
+import IntroVideo from './components/IntroVideo.jsx'
 
 function App() {
   const [currentView, setCurrentView] = React.useState('home')
