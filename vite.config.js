@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/gurkha-preparation-tracker/',
+  base: '/Army/',
   build: {
     outDir: 'dist',
     sourcemap: true
