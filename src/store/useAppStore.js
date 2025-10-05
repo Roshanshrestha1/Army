@@ -1,7 +1,6 @@
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 import { saveProgress } from '../utils/apiClient'
-import { useAuthStore } from './useAuthStore'
 
 // Milestone data structure
 const initialMilestones = [
@@ -143,11 +142,9 @@ export const useAppStore = create(
               : milestone
           )
         }))
-        const { isLoggedIn } = useAuthStore.getState()
-        if (isLoggedIn()) {
-          const { milestones, userSettings } = get()
-          saveProgress({ milestones, userSettings }).catch(() => {})
-        }
+        // Save progress (simplified for now)
+        const { milestones, userSettings } = get()
+        saveProgress({ milestones, userSettings }).catch(() => {})
       },
       
       updateMilestoneStatus: (milestoneId, status) => {
@@ -158,11 +155,9 @@ export const useAppStore = create(
               : milestone
           )
         }))
-        const { isLoggedIn } = useAuthStore.getState()
-        if (isLoggedIn()) {
-          const { milestones, userSettings } = get()
-          saveProgress({ milestones, userSettings }).catch(() => {})
-        }
+        // Save progress (simplified for now)
+        const { milestones, userSettings } = get()
+        saveProgress({ milestones, userSettings }).catch(() => {})
       },
       
       setCurrentView: (view) => set({ currentView: view }),
@@ -171,11 +166,9 @@ export const useAppStore = create(
         set(state => ({
           userSettings: { ...state.userSettings, ...settings }
         }))
-        const { isLoggedIn } = useAuthStore.getState()
-        if (isLoggedIn()) {
-          const { milestones, userSettings } = get()
-          saveProgress({ milestones, userSettings }).catch(() => {})
-        }
+        // Save progress (simplified for now)
+        const { milestones, userSettings } = get()
+        saveProgress({ milestones, userSettings }).catch(() => {})
       },
       
       setCameraPosition: (position, target) => {

@@ -1,6 +1,5 @@
 import { create } from 'zustand'
 import { fetchProgress } from '../utils/apiClient'
-import { useAppStore } from './useAppStore'
 
 export const useAuthStore = create((set, get) => ({
   token: null,

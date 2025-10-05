@@ -1,27 +1,12 @@
-import { useAuthStore } from '../store/useAuthStore'
-
+// Simplified API client for now
 export async function fetchProgress() {
-  const { apiBase, token } = useAuthStore.getState()
-  const res = await fetch(`${apiBase}/progress.php`, {
-    headers: { Authorization: `Bearer ${token}` }
-  })
-  const data = await res.json()
-  if (!res.ok) throw new Error(data.error || 'Failed to fetch progress')
-  return data.data
+  // Return empty data for now
+  return { milestones: [], userSettings: {} }
 }
 
 export async function saveProgress(progress) {
-  const { apiBase, token } = useAuthStore.getState()
-  const res = await fetch(`${apiBase}/progress.php`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${token}`
-    },
-    body: JSON.stringify({ data: progress })
-  })
-  const data = await res.json()
-  if (!res.ok) throw new Error(data.error || 'Failed to save progress')
+  // Just log for now
+  console.log('Saving progress:', progress)
   return true
 }
 
