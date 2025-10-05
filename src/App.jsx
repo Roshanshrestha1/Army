@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import Navigation from './components/UI/Navigation'
 import StatusBar from './components/UI/StatusBar'
 import Onboarding from './components/Onboarding'
+import IntroVideo from './components/IntroVideo'
 import HomeView from './components/Views/HomeView'
 import RoadmapHomeView from './components/Views/RoadmapHomeView'
 import ChecklistView from './components/Views/ChecklistView'
@@ -18,11 +19,19 @@ import { useAppStore } from './store/useAppStore'
 import { useKeyboardNavigation, useFocusManagement } from './hooks/useKeyboardNavigation'
 
 function App() {
-  const { currentView, isFullscreenMode } = useAppStore()
+  const { currentView, isFullscreenMode, showIntroVideo, hideIntroVideo } = useAppStore()
   
   // Enable keyboard navigation and focus management
   useKeyboardNavigation()
   useFocusManagement()
+
+  // Check if intro video should be shown (first visit)
+  React.useEffect(() => {
+    const hasSeenIntro = localStorage.getItem('hasSeenIntro')
+    if (hasSeenIntro) {
+      hideIntroVideo()
+    }
+  }, [hideIntroVideo])
   
   const renderView = () => {
     switch (currentView) {
@@ -55,6 +64,11 @@ function App() {
   
   return (
     <div className="App">
+      {/* Intro Video */}
+      {showIntroVideo && (
+        <IntroVideo onComplete={hideIntroVideo} />
+      )}
+      
       {/* Navigation */}
       <Navigation />
       

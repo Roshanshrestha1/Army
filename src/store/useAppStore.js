@@ -108,6 +108,7 @@ export const useAppStore = create(
       isLowPerformanceMode: false,
       isFullscreenMode: false,
       showOnboarding: true,
+      showIntroVideo: false,
       
       // Actions
       setSelectedMilestone: (milestoneId) => {
@@ -237,6 +238,15 @@ export const useAppStore = create(
           console.error('Failed to import data:', error)
           return false
         }
+      },
+      
+      showIntroVideo: () => {
+        set({ showIntroVideo: true })
+      },
+      
+      hideIntroVideo: () => {
+        set({ showIntroVideo: false })
+        localStorage.setItem('hasSeenIntro', 'true')
       }
     }),
     {

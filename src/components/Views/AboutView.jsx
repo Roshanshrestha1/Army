@@ -1,8 +1,11 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { Heart, Users, Target, BookOpen } from 'lucide-react'
+import { Heart, Users, Target, BookOpen, Play } from 'lucide-react'
+import { useAppStore } from '../../store/useAppStore'
 
 function AboutView() {
+  const { showIntroVideo } = useAppStore()
+  
   return (
     <div className="h-screen w-full overflow-y-auto pt-20 pb-6">
       <div className="max-w-4xl mx-auto px-6">
@@ -151,6 +154,13 @@ function AboutView() {
             </button>
             <button className="px-6 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-lg transition-colors">
               Follow on GitHub
+            </button>
+            <button 
+              onClick={showIntroVideo}
+              className="px-6 py-2 bg-army-600 hover:bg-army-500 text-white rounded-lg transition-colors flex items-center gap-2"
+            >
+              <Play size={16} />
+              Replay Intro Video
             </button>
           </div>
         </motion.div>
