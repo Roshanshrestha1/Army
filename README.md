@@ -30,8 +30,8 @@ A comprehensive 3D interactive web application designed to help aspiring Gurkha 
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/Roshanshrestha1/ARMY.git
-   cd ARMY
+   git clone https://github.com/Roshanshrestha1/Army.git
+   cd Army
    ```
 
 2. **Install dependencies**
@@ -208,7 +208,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 If you encounter any issues or have questions:
 
-1. Check the [Issues](https://github.com/Roshanshrestha1/ARMY/issues) page
+1. Check the [Issues](https://github.com/Roshanshrestha1/Army/issues) page
 2. Create a new issue with detailed description
 3. Contact the development team
 
